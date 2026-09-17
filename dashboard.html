@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MERVEX — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08080a;--panel:#111113;--panel2:#171719;--line:#29292c;--text:#f4f3ef;--muted:#9b9b96;--paper:#f7f6f1;--ok:#25d366;--warn:#f5b942;--danger:#ff5c5c;--radius:14px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.side{border-right:1px solid var(--line);padding:26px 18px;position:sticky;top:0;height:100vh;background:#0b0b0d}.brand{padding:4px 12px 28px}.brand b{font:900 42px/1 'Big Shoulders Display';letter-spacing:1px}.brand span{display:block;color:var(--muted);font-size:10px;letter-spacing:2px;margin-top:4px}.nav{display:grid;gap:6px}.nav button{background:none;border:0;color:#aaa;text-align:left;padding:13px 14px;border-radius:10px;font:600 14px Inter;cursor:pointer}.nav button.active,.nav button:hover{background:#1b1b1e;color:#fff}.bottom{position:absolute;bottom:20px;left:18px;right:18px}.main{padding:28px clamp(18px,4vw,48px);max-width:1500px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:28px}.eyebrow{color:var(--muted);font-size:12px}.title{font:800 42px/1.05 'Big Shoulders Display';margin:3px 0}.actions{display:flex;gap:10px}.btn{border:1px solid var(--line);background:var(--panel);color:#fff;padding:11px 15px;border-radius:10px;font-weight:700;cursor:pointer}.btn.primary{background:var(--paper);color:#0b0b0d;border-color:var(--paper)}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px}.metric{min-height:132px}.metric .label{color:var(--muted);font-size:12px}.metric .num{font-size:30px;font-weight:800;margin:14px 0 7px}.trend{font-size:12px}.up{color:var(--ok)}.muted{color:var(--muted)}.section{margin-top:18px}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.section h2{font:700 26px 'Big Shoulders Display';margin:0}.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left;font-size:13px}.table th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.7px}.table tr:last-child td{border-bottom:0}.badge{display:inline-flex;padding:5px 9px;border-radius:99px;background:#242427;font-size:11px;font-weight:700}.badge.ok{background:rgba(37,211,102,.12);color:var(--ok)}.badge.warn{background:rgba(245,185,66,.12);color:var(--warn)}.badge.danger{background:rgba(255,92,92,.12);color:var(--danger)}.split{display:grid;grid-template-columns:1.4fr .8fr;gap:14px}.bars{height:220px;display:flex;align-items:end;gap:10px;padding:20px}.bar{flex:1;background:#d9d8d2;border-radius:6px 6px 2px 2px;min-height:10px;position:relative}.bar span{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--muted)}.productrow{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line)}.productrow:last-child{border-bottom:0}.thumb{width:42px;height:42px;border-radius:9px;background:#202023;display:grid;place-items:center;font-size:18px}.grow{flex:1}.name{font-weight:700;font-size:13px}.small{font-size:11px;color:var(--muted);margin-top:4px}.page{display:none}.page.active{display:block}.toolbar{display:flex;gap:10px;margin-bottom:12px}.search{flex:1;background:var(--panel);border:1px solid var(--line);color:#fff;padding:12px;border-radius:10px;outline:none}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:7px}.field label{font-size:12px;color:var(--muted)}.field input,.field select{background:#0c0c0e;border:1px solid var(--line);color:#fff;padding:12px;border-radius:9px}.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;place-items:center;padding:20px;z-index:20}.modal.open{display:grid}.modalbox{width:min(600px,100%);background:#131315;border:1px solid var(--line);border-radius:16px;padding:22px}.modalhead{display:flex;justify-content:space-between}.close{background:none;border:0;color:#fff;font-size:24px;cursor:pointer}.footnote{color:var(--muted);font-size:11px;margin-top:15px}.mobile{display:none}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr}.app{grid-template-columns:80px 1fr}.brand b{font-size:28px}.brand span,.nav button span{display:none}.nav button{text-align:center}.bottom{left:12px;right:12px}.brand{text-align:center;padding-left:0;padding-right:0}}
+@media(max-width:650px){.app{display:block}.side{position:fixed;z-index:10;left:0;right:0;bottom:0;top:auto;height:66px;border-right:0;border-top:1px solid var(--line);padding:6px 8px}.brand,.bottom{display:none}.nav{display:flex;justify-content:space-around}.nav button{padding:10px;font-size:11px}.nav button span{display:block}.main{padding:20px 14px 84px}.top{align-items:flex-start}.title{font-size:34px}.actions .btn:not(.primary){display:none}.grid{grid-template-columns:1fr 1fr}.metric{min-height:115px;padding:15px}.metric .num{font-size:24px}.table th:nth-child(3),.table td:nth-child(3){display:none}.formgrid{grid-template-columns:1fr}}
+</style></head>
+<body><div class="app">
+<aside class="side"><div class="brand"><b>MERVEX</b><span>ADMIN DASHBOARD</span></div><nav class="nav">
+<button class="active" data-page="overview">◈ <span>Overview</span></button><button data-page="orders">▣ <span>Commandes</span></button><button data-page="products">◇ <span>Produits</span></button><button data-page="customers">◎ <span>Clients</span></button></nav><div class="bottom"><button class="btn" style="width:100%" onclick="location.href='index.html'">← Boutique</button></div></aside>
+<main class="main">
+<div class="top"><div><div class="eyebrow">MERVEX / ADMIN</div><div class="title" id="pageTitle">OVERVIEW</div><div class="muted" style="font-size:12px">Gestion simple de ta boutique</div></div><div class="actions"><button class="btn" onclick="exportData()">Exporter</button><button class="btn primary" onclick="openProduct()">+ Produit</button></div></div>
+<section class="page active" id="overview"><div class="grid"><div class="card metric"><div class="label">CHIFFRE D'AFFAIRES</div><div class="num">12 840 DH</div><div class="trend up">↑ 14,8% ce mois</div></div><div class="card metric"><div class="label">COMMANDES</div><div class="num">128</div><div class="trend up">↑ 9 nouvelles</div></div><div class="card metric"><div class="label">CLIENTS</div><div class="num">96</div><div class="trend up">↑ 12 ce mois</div></div><div class="card metric"><div class="label">PANIER MOYEN</div><div class="num">100 DH</div><div class="trend muted">Livraison: 30 DH</div></div></div>
+<div class="split section"><div class="card"><div class="sectionhead"><h2>VENTES — 7 JOURS</h2><span class="badge ok">LIVE</span></div><div class="bars" id="bars"></div></div><div class="card"><div class="sectionhead"><h2>TOP PRODUITS</h2></div><div id="topProducts"></div></div></div>
+<div class="section"><div class="sectionhead"><h2>DERNIÈRES COMMANDES</h2><button class="btn" onclick="showPage('orders')">Voir tout</button></div><div class="panel"><table class="table"><thead><tr><th>ID</th><th>Client</th><th>Produit</th><th>Total</th><th>Statut</th></tr></thead><tbody id="recentOrders"></tbody></table></div></div></section>
+<section class="page" id="orders"><div class="toolbar"><input class="search" id="orderSearch" placeholder="Rechercher une commande ou un client…" oninput="renderOrders()"></div><div class="panel"><table class="table"><thead><tr><th>ID</th><th>Client</th><th>Produit</th><th>Total</th><th>Date</th><th>Statut</th></tr></thead><tbody id="ordersTable"></tbody></table></div></section>
+<section class="page" id="products"><div class="toolbar"><input class="search" id="productSearch" placeholder="Rechercher un produit…" oninput="renderProducts()"><button class="btn primary" onclick="openProduct()">+ Ajouter</button></div><div class="panel"><table class="table"><thead><tr><th>Produit</th><th>Catégorie</th><th>Prix</th><th>Stock</th><th>Statut</th><th></th></tr></thead><tbody id="productsTable"></tbody></table></div></section>
+<section class="page" id="customers"><div class="panel"><table class="table"><thead><tr><th>Client</th><th>Téléphone</th><th>Commandes</th><th>Total dépensé</th><th>Dernière commande</th></tr></thead><tbody id="customersTable"></tbody></table></div></section>
+</main></div>
+<div class="modal" id="modal"><div class="modalbox"><div class="modalhead"><h2 style="font:700 28px 'Big Shoulders Display';margin:0">AJOUTER UN PRODUIT</h2><button class="close" onclick="closeModal()">×</button></div><form id="productForm" style="margin-top:18px"><div class="formgrid"><div class="field"><label>Nom</label><input id="pname" required placeholder="MERVEX NEW CAP"></div><div class="field"><label>Catégorie</label><select id="pcat"><option>caps</option><option>watches</option><option>bags</option><option>accessories</option></select></div><div class="field"><label>Prix (DH)</label><input id="pprice" type="number" required min="0" placeholder="199"></div><div class="field"><label>Stock</label><input id="pstock" type="number" required min="0" placeholder="20"></div></div><button class="btn primary" style="width:100%;margin-top:18px">Enregistrer</button></form></div></div>
+<script>
+const API="/api";
+let products=[], orders=[], customers=[], stats={};
+
+async function api(url, options={}) {
+  const r=await fetch(url,{headers:{"Content-Type":"application/json"},...options});
+  const data=await r.json().catch(()=>({}));
+  if(!r.ok) throw new Error(data.error||"Erreur serveur");
+  return data;
+}
+const money=n=>`${Number(n||0).toLocaleString("fr-FR")} DH`;
+const date=d=>d?new Date(d).toLocaleDateString("fr-FR"): "—";
+function status(s){
+  let c=["Livrée","Livree"].includes(s)?"ok":["Annulée","Annulee"].includes(s)?"danger":"warn";
+  return `<span class="badge ${c}">${s}</span>`;
+}
+async function loadAll(){
+  [products,orders,customers,stats]=await Promise.all([
+    api(`${API}/products`),api(`${API}/orders`),api(`${API}/customers`),api(`${API}/stats`)
+  ]);
+  renderAll();
+}
+function renderOrders(){
+  const q=(document.getElementById("orderSearch")?.value||"").toLowerCase();
+  document.getElementById("ordersTable").innerHTML=orders.filter(o=>{
+    return JSON.stringify(o).toLowerCase().includes(q);
+  }).map(o=>`<tr>
+    <td><b>${o.id}</b></td>
+    <td>${o.customer.first} ${o.customer.last||""}<div class="small">${o.customer.phone||""}</div></td>
+    <td>${o.items.map(i=>`${i.name} ×${i.qty}`).join("<br>")}</td>
+    <td><b>${money(o.total)}</b></td>
+    <td>${date(o.createdAt)}</td>
+    <td><select onchange="changeOrderStatus('${o.id}',this.value)" style="background:#0c0c0e;color:#fff;border:1px solid var(--line);padding:7px;border-radius:8px">
+      ${["Nouvelle","En préparation","Expédition","Livrée","Annulée"].map(x=>`<option ${x===o.status?"selected":""}>${x}</option>`).join("")}
+    </select></td>
+  </tr>`).join("") || `<tr><td colspan="6" class="muted">Aucune commande.</td></tr>`;
+}
+async function changeOrderStatus(id,statusValue){
+  try{await api(`${API}/orders/${encodeURIComponent(id)}`,{method:"PATCH",body:JSON.stringify({status:statusValue})});await loadAll();}
+  catch(e){alert(e.message)}
+}
+function renderProducts(){
+  const q=(document.getElementById("productSearch")?.value||"").toLowerCase();
+  document.getElementById("productsTable").innerHTML=products.filter(p=>JSON.stringify(p).toLowerCase().includes(q)).map(p=>`<tr>
+    <td><b>${p.name}</b></td><td>${p.category}</td><td>${money(p.price)}</td><td>${p.stock}</td>
+    <td>${p.stock>5?status("Disponible"):status("Stock faible")}</td>
+    <td><button class="btn" onclick="editProduct(${p.id})">Modifier</button>
+    <button class="btn" onclick="deleteProduct(${p.id})">Supprimer</button></td>
+  </tr>`).join("") || `<tr><td colspan="6" class="muted">Aucun produit.</td></tr>`;
+}
+function renderCustomers(){
+  document.getElementById("customersTable").innerHTML=customers.map(c=>`<tr>
+    <td><b>${c.first} ${c.last||""}</b></td><td>${c.phone}</td><td>${c.ordersCount}</td>
+    <td>${money(c.totalSpent)}</td><td>${date(c.lastOrderAt)}</td>
+  </tr>`).join("") || `<tr><td colspan="5" class="muted">Aucun client.</td></tr>`;
+}
+function renderOverview(){
+  document.querySelector("#overview .grid .metric:nth-child(1) .num").textContent=money(stats.revenue);
+  document.querySelector("#overview .grid .metric:nth-child(2) .num").textContent=stats.orders;
+  document.querySelector("#overview .grid .metric:nth-child(3) .num").textContent=stats.customers;
+  document.querySelector("#overview .grid .metric:nth-child(4) .num").textContent=money(stats.avgOrder);
+
+  document.getElementById("recentOrders").innerHTML=orders.slice(0,6).map(o=>`<tr>
+    <td><b>${o.id}</b></td><td>${o.customer.first} ${o.customer.last||""}</td>
+    <td>${o.items[0]?.name||"—"}</td><td>${money(o.total)}</td><td>${status(o.status)}</td>
+  </tr>`).join("") || `<tr><td colspan="5" class="muted">Aucune commande.</td></tr>`;
+
+  const counts={};
+  orders.forEach(o=>o.items.forEach(i=>counts[i.name]=(counts[i.name]||0)+i.qty));
+  const top=[...products].sort((a,b)=>(counts[b.name]||0)-(counts[a.name]||0)).slice(0,5);
+  document.getElementById("topProducts").innerHTML=top.map(p=>`<div class="productrow">
+    <div class="thumb">${p.category==="watches"?"⌚":p.category==="caps"?"🧢":p.category==="bags"?"👜":"◈"}</div>
+    <div class="grow"><div class="name">${p.name}</div><div class="small">${money(p.price)} · ${p.stock} en stock</div></div>
+    <span class="badge">${counts[p.name]||0} ventes</span>
+  </div>`).join("");
+
+  const daily={}; orders.forEach(o=>{const k=date(o.createdAt);daily[k]=(daily[k]||0)+Number(o.total||0)});
+  const vals=Object.values(daily).slice(-7); const max=Math.max(...vals,1);
+  document.getElementById("bars").innerHTML=(vals.length?vals:[0,0,0,0,0,0,0]).map((v,i)=>`<div class="bar" style="height:${Math.max(5,v/max*100)}%"><span>${i+1}</span></div>`).join("");
+}
+function renderAll(){renderOverview();renderOrders();renderProducts();renderCustomers();}
+function showPage(id){
+  document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));
+  document.getElementById("pageTitle").textContent=id.toUpperCase();
+}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+
+function openProduct(edit=null){
+  document.getElementById("modal").classList.add("open");
+  const p=edit;
+  document.querySelector("#modal h2").textContent=p?"MODIFIER UN PRODUIT":"AJOUTER UN PRODUIT";
+  document.getElementById("pname").value=p?.name||"";
+  document.getElementById("pcat").value=p?.category||"caps";
+  document.getElementById("pprice").value=p?.price??"";
+  document.getElementById("pstock").value=p?.stock??"";
+  document.getElementById("productForm").dataset.id=p?.id||"";
+}
+function editProduct(id){const p=products.find(x=>x.id===id);if(p)openProduct(p);}
+function closeModal(){document.getElementById("modal").classList.remove("open");}
+async function deleteProduct(id){
+  if(!confirm("Supprimer ce produit ?")) return;
+  try{await api(`${API}/products/${id}`,{method:"DELETE"});await loadAll();}catch(e){alert(e.message)}
+}
+document.getElementById("productForm").onsubmit=async e=>{
+  e.preventDefault();
+  const id=e.target.dataset.id;
+  const payload={name:pname.value,category:pcat.value,price:Number(pprice.value),stock:Number(pstock.value)};
+  try{
+    if(id) await api(`${API}/products/${id}`,{method:"PATCH",body:JSON.stringify(payload)});
+    else await api(`${API}/products`,{method:"POST",body:JSON.stringify(payload)});
+    closeModal();e.target.reset();e.target.dataset.id="";await loadAll();
+  }catch(err){alert(err.message)}
+};
+async function exportData(){
+  const data={products,orders,customers,stats};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="mervex-data.json";a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+loadAll().catch(e=>alert("Le serveur MERVEX n'est pas démarré. Lance npm install puis npm start."));
+</script></body></html>

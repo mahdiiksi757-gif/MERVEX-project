@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MERVEX — Online Shopping | Street Style & Accessories</title>
+<meta name="description" content="MERVEX Online Shopping — Casquettes, montres, sacs et accessoires street style. Livraison partout au Maroc.">
+<meta property="og:title" content="MERVEX — Online Shopping">
+<meta property="og:description" content="Street style. Quality. Yours. Livraison partout au Maroc.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loader" class="loader" aria-hidden="true">
+  <div class="loader__mark">MERVEX</div>
+  <div class="loader__sub">ONLINE SHOPPING</div>
+  <div class="loader__bar"><span></span></div>
+</div>
+
+<!-- SKIP LINK -->
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<!-- NAVBAR -->
+<header class="nav" id="nav">
+  <div class="nav__row">
+    <button class="nav__burger" id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a href="#top" class="nav__brand">
+      <span class="nav__logo">MERVEX</span>
+      <span class="nav__tag">ONLINE SHOPPING</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Navigation principale">
+      <a href="#top">Accueil</a>
+      <a href="#new">Nouveautés</a>
+      <a href="#" data-cat="caps">Casquettes</a>
+      <a href="#" data-cat="watches">Montres</a>
+      <a href="#" data-cat="bags">Sacs</a>
+      <a href="#street">Street Style</a>
+      <a href="#offers">Offers</a>
+    </nav>
+
+    <div class="nav__icons">
+      <button id="searchBtn" class="icon-btn" aria-label="Rechercher">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button id="wishlistBtn" class="icon-btn" aria-label="Liste de souhaits">
+        <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9C.3 8.1 2 4 6 4c2.2 0 3.9 1.3 6 3.6C14.1 5.3 15.8 4 18 4c4 0 5.7 4.1 4 8-2.5 4.4-10 9-10 9z"/></svg>
+        <span class="icon-badge" id="wishlistCount">0</span>
+      </button>
+      <button id="cartBtn" class="icon-btn" aria-label="Panier">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1.2"/><circle cx="18" cy="21" r="1.2"/><path d="M2 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+        <span class="icon-badge" id="cartCount">0</span>
+      </button>
+      <button id="accountBtn" class="icon-btn" aria-label="Compte">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+      </button>
+      <button id="themeBtn" class="icon-btn" aria-label="Changer de thème">
+        <svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- SEARCH PANEL -->
+  <div class="search-panel" id="searchPanel">
+    <div class="search-panel__inner">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Rechercher watch, cap, bag, street, accessory…" autocomplete="off">
+      <button id="searchClose" aria-label="Fermer la recherche">&times;</button>
+    </div>
+    <div class="search-panel__results" id="searchResults"></div>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav aria-label="Navigation mobile">
+    <a href="#top">Accueil</a>
+    <a href="#new">Nouveautés</a>
+    <a href="#" data-cat="caps">Casquettes</a>
+    <a href="#" data-cat="watches">Montres</a>
+    <a href="#" data-cat="bags">Sacs</a>
+    <a href="#street">Street Style</a>
+    <a href="#offers">Offers</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<main id="main">
+
+<!-- 3D SHOWROOM (cinematic scroll-driven product journey) -->
+<a id="top" class="visually-hidden" tabindex="-1"></a>
+<section class="showroom" id="showroom" aria-label="MERVEX 3D Product Showroom">
+  <div class="showroom__viewport" id="showroomViewport">
+    <div class="showroom__vignette" aria-hidden="true"></div>
+
+    <!-- SCENE 0 — WATCH -->
+    <div class="scene" data-scene="0">
+      <div class="scene__glow" aria-hidden="true"></div>
+      <div class="scene__stage">
+        <div class="scene__shadow" aria-hidden="true"></div>
+        <img class="scene__product" src="assets/images/watches/watch-01.svg" alt="MERVEX Black Watch" loading="eager">
+      </div>
+      <div class="scene__text">
+        <div class="scene__text-inner">
+          <p class="scene__eyebrow">MERVEX / WATCHES</p>
+          <h2 class="scene__title">TIME,<br>REDEFINED.</h2>
+          <p class="scene__desc">Cadran noir profond, index argentés, précision pensée pour la rue.</p>
+          <button class="btn btn--outline scene__cta" data-goto-cat="watches">Shop Watches</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENE 1 — CAP -->
+    <div class="scene" data-scene="1">
+      <div class="scene__glow" aria-hidden="true"></div>
+      <div class="scene__stage">
+        <div class="scene__shadow" aria-hidden="true"></div>
+        <img class="scene__product" src="assets/images/caps/cap-01.svg" alt="MERVEX Urban Cap" loading="lazy">
+      </div>
+      <div class="scene__text">
+        <div class="scene__text-inner">
+          <p class="scene__eyebrow">MERVEX / CASQUETTES</p>
+          <h2 class="scene__title">CROWNED<br>IN BLACK.</h2>
+          <p class="scene__desc">Coupe structurée, broderie minimale, signature MERVEX sur chaque angle.</p>
+          <button class="btn btn--outline scene__cta" data-goto-cat="caps">Shop Caps</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENE 2 — BAG -->
+    <div class="scene" data-scene="2">
+      <div class="scene__glow" aria-hidden="true"></div>
+      <div class="scene__stage">
+        <div class="scene__shadow" aria-hidden="true"></div>
+        <img class="scene__product" src="assets/images/bags/bag-01.svg" alt="MERVEX Street Bag" loading="lazy">
+      </div>
+      <div class="scene__text">
+        <div class="scene__text-inner">
+          <p class="scene__eyebrow">MERVEX / SACS</p>
+          <h2 class="scene__title">CARRY<br>THE CODE.</h2>
+          <p class="scene__desc">Silhouette urbaine, cuir texturé, pensé pour le quotidien street.</p>
+          <button class="btn btn--outline scene__cta" data-goto-cat="bags">Shop Bags</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENE 3 — STREETWEAR -->
+    <div class="scene" data-scene="3">
+      <div class="scene__glow" aria-hidden="true"></div>
+      <div class="scene__stage">
+        <div class="scene__shadow" aria-hidden="true"></div>
+        <img class="scene__product" src="assets/images/street-style/hoodie-01.svg" alt="MERVEX Streetwear" loading="lazy">
+      </div>
+      <div class="scene__text">
+        <div class="scene__text-inner">
+          <p class="scene__eyebrow">MERVEX / STREET STYLE</p>
+          <h2 class="scene__title">STREET<br>UNIFORM.</h2>
+          <p class="scene__desc">Coupe oversize, matières lourdes, l'essentiel du vestiaire MERVEX.</p>
+          <button class="btn btn--outline scene__cta" data-goto-section="street">Explore Street Style</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENE 4 — ACCESSORIES + FINAL CTA -->
+    <div class="scene scene--final" data-scene="4">
+      <div class="scene__glow" aria-hidden="true"></div>
+      <div class="scene__stage">
+        <div class="scene__shadow" aria-hidden="true"></div>
+        <img class="scene__product" src="assets/images/accessories/acc-01.svg" alt="MERVEX Accessories" loading="lazy">
+      </div>
+      <div class="scene__text">
+        <div class="scene__text-inner">
+          <p class="scene__eyebrow">MERVEX / ACCESSORIES</p>
+          <h2 class="scene__title">FINISHED<br>IN DETAIL.</h2>
+          <p class="scene__desc">Les pièces qui complètent l'uniforme. Toute la collection MERVEX vous attend.</p>
+          <div class="scene__final-cta">
+            <button class="btn btn--primary" data-goto-section="shop">Discover the Collection</button>
+            <button class="btn btn--ghost" data-goto-section="shop">Shop MERVEX</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="showroom__progress" aria-hidden="true">
+      <span class="showroom__dot is-active" data-dot="0"></span>
+      <span class="showroom__dot" data-dot="1"></span>
+      <span class="showroom__dot" data-dot="2"></span>
+      <span class="showroom__dot" data-dot="3"></span>
+      <span class="showroom__dot" data-dot="4"></span>
+    </div>
+    <div class="showroom__scroll-hint" id="showroomScrollHint">Scroll</div>
+  </div>
+</section>
+
+<!-- SHOP BY CATEGORY -->
+<section class="section categories" id="categories">
+  <div class="section__head">
+    <h2>Shop by Category</h2>
+  </div>
+  <div class="cat-grid">
+    <a class="cat-card" href="#" data-cat="caps">
+      <img src="assets/images/caps/cap-02.svg" alt="Casquettes MERVEX">
+      <div class="cat-card__info">
+        <h3>Casquettes</h3>
+        <p>Style en toute saison</p>
+        <span class="cat-card__arrow">Explore →</span>
+      </div>
+    </a>
+    <a class="cat-card" href="#" data-cat="watches">
+      <img src="assets/images/watches/watch-02.svg" alt="Montres MERVEX">
+      <div class="cat-card__info">
+        <h3>Montres</h3>
+        <p>Élégance &amp; Performance</p>
+        <span class="cat-card__arrow">Explore →</span>
+      </div>
+    </a>
+    <a class="cat-card" href="#" data-cat="bags">
+      <img src="assets/images/bags/bag-02.svg" alt="Sacs MERVEX">
+      <div class="cat-card__info">
+        <h3>Sacs</h3>
+        <p>Pratique &amp; Moderne</p>
+        <span class="cat-card__arrow">Explore →</span>
+      </div>
+    </a>
+    <a class="cat-card" href="#street">
+      <img src="assets/images/street-style/street-01.svg" alt="Street Style MERVEX">
+      <div class="cat-card__info">
+        <h3>Street Style</h3>
+        <p>More than fashion</p>
+        <span class="cat-card__arrow">Explore →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- GIFT EXPERIENCE -->
+<section class="section gift">
+  <div class="gift__visual">
+    <img src="assets/images/gift/gift-tag.svg" alt="MERVEX Gift Tag">
+  </div>
+  <div class="gift__copy">
+    <h2>Your Order, With a Little Extra.</h2>
+    <p class="gift__fr">Une petite attention pour une grande expérience.</p>
+    <p>Votre commande MERVEX peut être accompagnée d'une touche spéciale.</p>
+    <button class="btn btn--outline" id="giftDiscoverBtn">Discover</button>
+  </div>
+</section>
+
+<!-- FILTER + SHOP TOOLBAR -->
+<section class="section shop-toolbar" id="shop">
+  <div class="section__head section__head--row">
+    <h2>All Products</h2>
+    <button class="btn btn--outline btn--sm" id="filterToggle">Filters</button>
+  </div>
+
+  <div class="toolbar" id="toolbar">
+    <div class="toolbar__group">
+      <label for="catFilter">Category</label>
+      <select id="catFilter">
+        <option value="all">All</option>
+        <option value="watches">Watches</option>
+        <option value="caps">Caps</option>
+        <option value="bags">Bags</option>
+        <option value="accessories">Accessories</option>
+      </select>
+    </div>
+    <div class="toolbar__group">
+      <label for="priceFilter">Price: <span id="priceVal">2000</span> MAD</label>
+      <input type="range" id="priceFilter" min="0" max="2000" step="50" value="2000">
+    </div>
+    <div class="toolbar__group toolbar__group--pills">
+      <label>Colors</label>
+      <div class="pills" id="colorFilter">
+        <button data-color="Black" class="pill">Black</button>
+        <button data-color="White" class="pill">White</button>
+        <button data-color="Silver" class="pill">Silver</button>
+      </div>
+    </div>
+    <div class="toolbar__group">
+      <label for="ratingFilter">Rating</label>
+      <select id="ratingFilter">
+        <option value="0">Any</option>
+        <option value="4">4+</option>
+        <option value="4.5">4.5+</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+    <div class="toolbar__group">
+      <label for="sortSelect">Sort</label>
+      <select id="sortSelect">
+        <option value="featured">Featured</option>
+        <option value="newest">Newest</option>
+        <option value="price-asc">Price Low → High</option>
+        <option value="price-desc">Price High → Low</option>
+        <option value="rating">Best Rated</option>
+      </select>
+    </div>
+    <button class="btn btn--ghost btn--sm" id="clearFilters">Clear Filters</button>
+  </div>
+</section>
+
+<!-- BEST SELLERS -->
+<section class="section" id="bestsellers">
+  <div class="section__head">
+    <h2>Best Sellers</h2>
+    <p>Les plus populaires de notre collection</p>
+  </div>
+  <div class="product-grid" id="productGrid"></div>
+  <p class="empty-state" id="noResults" hidden>No products found</p>
+</section>
+
+<!-- NEW ARRIVALS -->
+<section class="section" id="new">
+  <div class="section__head section__head--row">
+    <div>
+      <h2>Nouveautés</h2>
+    </div>
+    <a href="#shop" class="btn btn--outline btn--sm">View All</a>
+  </div>
+  <div class="product-grid" id="newGrid"></div>
+</section>
+
+<!-- OFFERS -->
+<section class="section offers" id="offers">
+  <div class="offers__inner">
+    <div class="offers__text">
+      <p class="eyebrow">LIMITED OFFERS</p>
+      <h2>Up To 30% Off</h2>
+      <p>Sur une sélection de montres et casquettes MERVEX. Le compte à rebours ne ment pas.</p>
+    </div>
+    <div class="countdown" id="countdown">
+      <div class="countdown__unit"><span id="cd-days">23</span><label>Days</label></div>
+      <div class="countdown__sep">:</div>
+      <div class="countdown__unit"><span id="cd-hours">14</span><label>Hours</label></div>
+      <div class="countdown__sep">:</div>
+      <div class="countdown__unit"><span id="cd-mins">51</span><label>Minutes</label></div>
+      <div class="countdown__sep">:</div>
+      <div class="countdown__unit"><span id="cd-secs">09</span><label>Seconds</label></div>
+    </div>
+  </div>
+</section>
+
+<!-- STREET STYLE STRIP -->
+<section class="section street" id="street">
+  <div class="section__head">
+    <h2>Street Style</h2>
+  </div>
+  <div class="street__strip">
+    <img src="assets/images/street-style/street-01.svg" alt="MERVEX Street Style look 1">
+    <img src="assets/images/street-style/street-02.svg" alt="MERVEX Street Style look 2">
+    <img src="assets/images/packaging/box-01.svg" alt="MERVEX premium packaging">
+  </div>
+</section>
+
+<!-- TRUST SECTION -->
+<section class="section trust">
+  <div class="trust__grid">
+    <div class="trust__item">
+      <svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg>
+      <h3>Livraison Rapide</h3>
+      <p>Partout au Maroc</p>
+    </div>
+    <div class="trust__item">
+      <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+      <h3>Paiement Sécurisé</h3>
+      <p>Visa / Mastercard / Cash</p>
+    </div>
+    <div class="trust__item">
+      <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+      <h3>Retour Facile</h3>
+      <p>Sous 7 jours</p>
+    </div>
+    <div class="trust__item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l2.6 6.4L21 9l-5 4.5 1.4 7L12 17l-5.4 3.5L8 13.5 3 9l6.4-.6z"/></svg>
+      <h3>Qualité Premium</h3>
+      <p>Produits sélectionnés</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews">
+  <div class="section__head">
+    <h2>What Our Clients Say</h2>
+  </div>
+  <div class="reviews__slider" id="reviewsSlider">
+    <div class="reviews__track" id="reviewsTrack"></div>
+  </div>
+  <div class="reviews__dots" id="reviewsDots"></div>
+</section>
+
+<!-- WHATSAPP CTA -->
+<section class="section wa-cta">
+  <h2>Need Help Choosing?</h2>
+  <p>Notre équipe est disponible sur WhatsApp.</p>
+  <a class="btn btn--wa" id="waCtaBtn" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11 11 0 0 0 3.3 17.4L2 22l4.7-1.2A11 11 0 1 0 20.5 3.5z"/><path d="M8.4 8.3c.2-.6.5-.6.8-.6h.6c.2 0 .5 0 .7.5.3.6 1 2 1 2.1.1.2.1.4 0 .6-.2.3-.3.5-.5.7-.2.2-.4.4-.2.8.3.5 1.1 1.6 2.3 2.6 1.6 1.3 2.9 1.7 3.3 1.9.4.2.6.1.8-.1.2-.3.9-1 1.1-1.3.2-.3.5-.3.8-.2.3.1 2 1 2.4 1.1.3.2.5.2.6.4.1.2.1 1-.3 1.9-.4.9-2.1 1.8-2.9 1.8-.8.1-1.4.1-4.7-1.9-3.9-2.4-6.3-6.3-6.5-6.6-.2-.3-1.5-2-1.5-3.8 0-1.8.9-2.7 1.3-3.1z" fill="#08080A"/></svg>
+    Chat on WhatsApp — 0611115043
+  </a>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="section__head">
+    <h2>Get In Touch</h2>
+  </div>
+  <div class="contact__grid">
+    <a class="contact__item" id="contactWa" target="_blank" rel="noopener">
+      <span>WhatsApp</span>
+      <strong>0611115043</strong>
+    </a>
+    <a class="contact__item" href="mailto:contact@mervex.ma">
+      <span>Email</span>
+      <strong>contact@mervex.ma</strong>
+    </a>
+    <a class="contact__item" href="#" target="_blank" rel="noopener">
+      <span>Instagram</span>
+      <strong>@mervex.ma</strong>
+    </a>
+    <a class="contact__item" href="#" target="_blank" rel="noopener">
+      <span>TikTok</span>
+      <strong>@mervex.ma</strong>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <span class="nav__logo">MERVEX</span>
+      <p>ONLINE SHOPPING</p>
+      <p class="footer__tagline">STREET STYLE / QUALITY / YOURS</p>
+    </div>
+    <div class="footer__col">
+      <h4>Shop</h4>
+      <a href="#shop">All Products</a>
+      <a href="#new">Nouveautés</a>
+      <a href="#offers">Offers</a>
+    </div>
+    <div class="footer__col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+    </div>
+    <div class="footer__col">
+      <h4>Legal</h4>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+    <div class="footer__col footer__newsletter">
+      <h4>Subscribe to our newsletter</h4>
+      <form id="newsletterForm">
+        <input type="email" placeholder="Email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer__bottom">© 2026 MERVEX. All rights reserved.</div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/212611115043?text=Bonjour%20MERVEX%2C%20j'ai%20besoin%20d'aide%20pour%20choisir%20un%20produit." target="_blank" rel="noopener" class="wa-float" id="waFloat">
+  <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11 11 0 0 0 3.3 17.4L2 22l4.7-1.2A11 11 0 1 0 20.5 3.5z"/></svg>
+  <span class="wa-float__text">
+    <strong>Besoin d'aide ?</strong>
+    <small>0611115043</small>
+  </span>
+</a>
+
+<!-- CART DRAWER -->
+<aside class="drawer" id="cartDrawer" aria-label="Panier">
+  <div class="drawer__head">
+    <h3>Your Cart</h3>
+    <button class="drawer__close" data-close="cart">&times;</button>
+  </div>
+  <div class="drawer__body" id="cartItems"></div>
+  <p class="empty-state" id="cartEmpty" hidden>Your cart is empty<br><button class="btn btn--outline btn--sm" data-close="cart">Continue Shopping</button></p>
+  <div class="drawer__summary" id="cartSummary">
+    <div class="row"><span>Subtotal</span><strong id="cartSubtotal">0 MAD</strong></div>
+    <div class="row"><span>Delivery</span><strong id="cartDelivery">30 MAD</strong></div>
+    <div class="row row--total"><span>Total</span><strong id="cartTotal">0 MAD</strong></div>
+    <button class="btn btn--primary btn--block" id="checkoutBtn">Checkout</button>
+  </div>
+</aside>
+
+<!-- WISHLIST DRAWER -->
+<aside class="drawer" id="wishlistDrawer" aria-label="Wishlist">
+  <div class="drawer__head">
+    <h3>Your Wishlist</h3>
+    <button class="drawer__close" data-close="wishlist">&times;</button>
+  </div>
+  <div class="drawer__body" id="wishlistItems"></div>
+  <p class="empty-state" id="wishlistEmpty" hidden>Your wishlist is empty<br><button class="btn btn--outline btn--sm" data-close="wishlist">Continue Shopping</button></p>
+</aside>
+
+<!-- QUICK VIEW MODAL -->
+<div class="modal" id="quickView" aria-hidden="true">
+  <div class="modal__panel modal__panel--product">
+    <button class="modal__close" data-close="quickview">&times;</button>
+    <div class="qv__grid" id="qvContent"></div>
+  </div>
+</div>
+
+<!-- ACCOUNT MODAL -->
+<div class="modal" id="accountModal" aria-hidden="true">
+  <div class="modal__panel modal__panel--sm">
+    <button class="modal__close" data-close="account">&times;</button>
+    <div class="account">
+      <h3>Account</h3>
+      <form id="loginForm">
+        <label for="accEmail">Email</label>
+        <input type="email" id="accEmail" required>
+        <label for="accPass">Password</label>
+        <input type="password" id="accPass" required>
+        <button type="submit" class="btn btn--primary btn--block">Login</button>
+      </form>
+      <a href="#" class="account__forgot">Forgot password?</a>
+      <div class="account__divider"><span>or</span></div>
+      <button class="btn btn--outline btn--block" id="createAccountBtn">Create Account</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal" id="checkoutModal" aria-hidden="true">
+  <div class="modal__panel modal__panel--checkout">
+    <button class="modal__close" data-close="checkout">&times;</button>
+    <div id="checkoutContent"></div>
+  </div>
+</div>
+
+<!-- GIFT MODAL -->
+<div class="modal" id="giftModal" aria-hidden="true">
+  <div class="modal__panel modal__panel--sm">
+    <button class="modal__close" data-close="gift">&times;</button>
+    <div class="gift-modal">
+      <img src="assets/images/gift/gift-tag.svg" alt="MERVEX Gift Tag">
+      <h3>A little extra, on us to arrange.</h3>
+      <p>Ajoutez une touche cadeau à votre prochaine commande — emballage noir premium et carte MERVEX incluse. Mentionnez-le simplement sur WhatsApp au moment de votre commande.</p>
+      <a class="btn btn--wa btn--block" href="https://wa.me/212611115043?text=Bonjour%20MERVEX%2C%20je%20voudrais%20ajouter%20une%20option%20cadeau%20%C3%A0%20ma%20commande." target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- TOASTS -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
